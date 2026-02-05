@@ -50,7 +50,8 @@
         .project-links a:hover,
         .certification-link:hover,
         .social-links a:hover,
-        .footer-social-links a:hover {
+        .footer-social-links a:hover,
+        .publication-link:hover {
             color: var(--secondary-color);
             background-color: rgba(0, 242, 255, 0.08);
             transition: color 0.3s, background 0.3s;
@@ -146,11 +147,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 2rem;
+            /* slightly larger than the previous compact size */
+            padding: 1.05rem 1.6rem;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.55rem;
             font-weight: 700;
             color: var(--primary-color);
         }
@@ -161,14 +163,14 @@
         }
 
         .nav-links li {
-            margin-left: 2.5rem;
+            margin-left: 1.6rem;
         }
 
         .nav-links a {
             color: var(--text-light);
             font-weight: 500;
             position: relative;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .nav-links a::after {
@@ -192,10 +194,10 @@
         }
 
         .burger div {
-            width: 25px;
-            height: 3px;
+            width: 22px;
+            height: 2.8px;
             background-color: var(--primary-color);
-            margin: 5px;
+            margin: 4.5px;
             transition: var(--transition);
         }
 
@@ -483,6 +485,124 @@
 
         .certification-link:hover {
             color: var(--text-light);
+        }
+
+        /* ===== PUBLICATIONS SECTION ===== */
+        #publications {
+            background-color: #0d0d0d;
+        }
+
+        .publications-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .toggle-publications {
+            background: var(--primary-color);
+            color: var(--dark-color);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,242,255,0.08);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .toggle-publications:hover {
+            background: var(--secondary-color);
+            color: #fff;
+        }
+
+        .publications-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .publications-container.show {
+            max-height: 1000px;
+            opacity: 1;
+        }
+
+        .publication-card {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .publications-container.show .publication-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .publication-card:nth-child(1) { transition-delay: 0.1s; }
+        .publication-card:nth-child(2) { transition-delay: 0.2s; }
+        .publication-card:nth-child(3) { transition-delay: 0.3s; }
+
+        .publication-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
+            background: linear-gradient(120deg, rgba(0,242,255,0.05) 0%, rgba(0,102,255,0.05) 100%);
+        }
+
+        .publication-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .publication-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .publication-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .publication-meta i {
+            color: var(--primary-color);
+        }
+
+        .publication-abstract {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .publication-link {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: var(--transition);
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .publication-link:hover {
+            background: var(--primary-color);
+            color: var(--dark-color);
+            transform: translateY(-2px);
         }
 
         /* ===== PROJECTS SECTION ===== */
@@ -784,26 +904,30 @@
         /* ===== FOOTER ===== */
         footer {
             text-align: center;
-            padding: 2rem 0;
+            /* slightly larger than the very compact version */
+            padding: 0.9rem 0;
             background-color: rgba(0, 0, 0, 0.9);
             color: var(--text-light);
             border-top: 1px solid var(--primary-color);
+            font-size: 0.98rem;
         }
 
         footer p {
             margin: 0;
+            font-size: 0.95rem;
         }
 
         .footer-social-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
+            gap: 1.35rem;
+            margin-bottom: 0.6rem;
         }
 
         .footer-social-links a {
             color: white;
-            font-size: 1.5rem;
+            /* slightly larger icons for readability */
+            font-size: 1.25rem;
             transition: color 0.3s, transform 0.3s;
         }
 
@@ -911,7 +1035,7 @@
             .nav-links {
                 position: absolute;
                 right: 0;
-                top: 70px; /* Adjust based on your nav height */
+                top: 65px; /* Adjust based on smaller nav height */
                 background-color: rgba(0, 0, 0, 0.9);
                 flex-direction: column;
                 width: 100%;
@@ -979,6 +1103,14 @@
             .footer-social-links {
                 gap: 1rem;
             }
+            .publications-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .publication-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -999,6 +1131,9 @@
             .skill-item {
                 width: 100px;
                 height: 100px;
+            }
+            .publication-card {
+                padding: 1.5rem;
             }
         }
 
@@ -1032,6 +1167,12 @@
             .pdf-preview iframe {
                 height: 300px;
             }
+            .publication-card {
+                padding: 1rem;
+            }
+            .publication-card h3 {
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
@@ -1045,6 +1186,7 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#publications">Publications</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#resume">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -1114,7 +1256,7 @@
                         </div>
                     </div>
                     <div class="about-image">
-                        <img src="https://github.com/Premchand1706/My-Portfolio/blob/main/my%20pic.jpg?raw=true" alt="Premchand" />
+                        <img src="img/my pic.jpg" alt="Premchand" />
                     </div>
                 </div>
             </div>
@@ -1160,7 +1302,7 @@
                 <div class="certifications-container">
                     <div class="certification-card">
                         <div class="certification-image">
-                            <img src="https://github.com/Premchand1706/My-Portfolio/blob/main/Oracle%20.jpg?raw=true" alt="Certificate" class="cert-img" />
+                            <img src="img/Oracle .jpg" alt="Certificate" class="cert-img" />
                         </div>
                         <div class="certification-info">
                             <h3>Oracle Certified Professional APEX Cloud Developer</h3>
@@ -1170,7 +1312,7 @@
                     </div>
                     <div class="certification-card">
                         <div class="certification-image">
-                            <img src="Web Development .jpg" alt="Certificate" class="cert-img" />
+                            <img src="img/Web Development .jpg" alt="Certificate" class="cert-img" />
                         </div>
                         <div class="certification-info">
                             <h3>Virtual internship in Web Development</h3>
@@ -1180,7 +1322,7 @@
                     </div>
                     <div class="certification-card">
                         <div class="certification-image">
-                            <img src="IBM PY0101.jpg" alt="Certificate" class="cert-img" />
+                            <img src="img/IBM PY0101.jpg" alt="Certificate" class="cert-img" />
                         </div>
                         <div class="certification-info">
                             <h3>Python 101 for Data Science</h3>
@@ -1190,7 +1332,7 @@
                     </div>
                     <div class="certification-card">
                         <div class="certification-image">
-                            <img src="Developing Front-End Apps with React.png" alt="Certificate" class="cert-img" />
+                            <img src="img/Developing Front-End Apps with React.png" alt="Certificate" class="cert-img" />
                         </div>
                         <div class="certification-info">
                             <h3>Developing Front-End Apps with React</h3>
@@ -1215,7 +1357,7 @@
                 <h2 class="section-title">Projects</h2>
                 <div class="projects-container">
                     <div class="project-card">
-                        <img src="https://github.com/Premchand1706/My-Portfolio/blob/main/DailyHarvest%20logo.png?raw=true" alt="DailyHarvest Logo" />
+                        <img src="img/DailyHarvest logo.png" alt="DailyHarvest Logo" />
                         <div class="project-info">
                             <h3>DailyHarvest</h3>
                             <p>
@@ -1229,7 +1371,7 @@
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="Travel Buddy logo.png" alt="Travel Buddy Logo" />
+                        <img src="img/Travel Buddy logo.png" alt="Travel Buddy Logo" />
                         <div class="project-info">
                             <h3>Travel Buddy</h3>
                             <p>
@@ -1242,7 +1384,7 @@
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="PSVlogo.png" alt="PSV Website Logo" />
+                        <img src="img/PSVlogo.png" alt="PSV Website Logo" />
                         <div class="project-info">
                             <h3>PSV Website</h3>
                             <p>
@@ -1254,6 +1396,59 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="section">
+            <div class="container">
+                <div class="publications-header">
+                    <h2 class="section-title">Research Publications</h2>
+                    <button class="toggle-publications">
+                        Explore Publications <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="publications-container">
+                    
+                    <div class="publication-card">
+                        <h3>Identifying Diabetes Detection Using Machine Learning Algorithms with Kernel PCA</h3>
+                        <div class="publication-meta">
+                            <span><i class="fas fa-book"></i> Intelligent Machine Processes and AI-Centric Technologies (IMPACT 2025)</span>
+                            <span><i class="fas fa-calendar-alt"></i> 05-06 December 2025</span>
+                            <span><i class="fas fa-user"></i> Co-authored with Prof. Suriya Prakash J</span>
+                            <span><i class="fas fa-tag"></i>Machine learning, Healthcare analytics, Diabetes prediction</span>
+                        </div>
+                        <p class="publication-abstract">
+                        This research explores the use of machine learning in identifying early-stage diabetes by analyzing patient health
+records. Fifteen distinct algorithms were rigorously evaluated using a curated dataset of key health metrics. Performance
+metrics such as accuracy, sensitivity, specificity, and predictive capability were measured across multiple classification
+thresholds (0.2, 0.4, 0.6) to assess model effectiveness.Among the tested models, Kernel Support Vector Machine (KSVM) with
+
+a linear kernel at a 0.2 threshold achieved perfect 100% accuracy, demonstrating superior predictive capability. Other high-
+performing models included CatBoost and XGBoost, which attained 99.04% accuracy under optimal configurations. The
+
+study highlights the significance of threshold selection in model performance, with lower thresholds generally yielding better
+results.The findings suggest that KSVM (Linear) is the most effective algorithm for diabetes prediction, offering healthcare
+professionals a reliable tool for early diagnosis. Future research could explore real-world deployment and integration with
+electronic health records to enhance clinical decision-making.
+                        </p>
+                        <a href="Identifying Diabetes Detection Using Machine Learning Algorithms with Kernel PCA.pdf" class="publication-link" target="_blank">
+                            <i class="fas fa-file-pdf"></i> Read Full Paper
+                        </a>
+                    </div>
+                    
+                    
+                
+                <!-- Publications Drive Link -->
+                <div class="publications-drive-link" style="text-align:center; margin: 2rem 0;">
+                    <p style="font-size:1.1rem; color:var(--primary-color, #00f2ff); margin-bottom:0.5rem;">
+                        Access all my research publications:
+                    </p>
+                    <a href="https://drive.google.com/drive/folders/1n-dtrRV2pYUvDNhCNtuZYPycScEuS0U_" class="btn btn-small btn-outline" target="_blank" style="display:inline-block;">
+                        <i class="fas fa-folder-open"></i> View All Publications
+                    </a>
                 </div>
             </div>
         </section>
@@ -1342,15 +1537,15 @@
                 </div>
                 <div class="resume-container">
                     <div class="resume-options">
-                        <a href="PremChand-Yedoti-FlowCV-Resume-20250506.pdf" download="PremChand-Yedoti-FlowCV-Resume-20250506.pdf" class="btn">
+                        <a href="Y.PremChand-Resume.pdf" download="Y.PremChand-Resume.pdf" class="btn">
                             <i class="fas fa-download"></i> Download PDF
                         </a>
-                        <a href="PremChand-Yedoti-FlowCV-Resume-20250506.pdf" target="_blank" class="btn btn-outline">
+                        <a href="Y.PremChand-Resume.pdf" target="_blank" class="btn btn-outline">
                             <i class="fas fa-expand"></i> Open Fullscreen
                         </a>
                     </div>
                     <div class="pdf-preview">
-                        <iframe src="PremChand-Yedoti-FlowCV-Resume-20250506.pdf#view=fitH" width="100%" height="500px" title="Resume Preview"></iframe>
+                        <iframe src="Y.PremChand-Resume.pdf#view=fitH" width="100%" height="500px" title="Resume Preview"></iframe>
                     </div>
                 </div>
             </div>
@@ -1399,7 +1594,6 @@
             </div>
         </section>
     </main>
-
     <footer>
         <div class="footer-social-links">
             <a href="https://github.com/Premchand1706" target="_blank" aria-label="GitHub">
@@ -1417,7 +1611,6 @@
         </div>
         <p>&copy; <span id="current-year"></span> Premchand. All rights reserved.</p>
     </footer>
-
     <div id="ttt-modal" class="modal">
       <span class="close" id="ttt-close">&times;</span>
       <div class="modal-content">
@@ -1457,7 +1650,7 @@
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - 70, // Adjust for fixed header height
+                            top: targetElement.offsetTop - 65, // Adjust for slightly larger fixed header height
                             behavior: 'smooth'
                         });
                     }
@@ -1465,6 +1658,7 @@
             });
             
             // ===== TOGGLE SECTIONS =====
+            // Certifications toggle
             const toggleCertifications = document.querySelector('.toggle-certifications');
             const certificationsContainer = document.querySelector('.certifications-container');
             
@@ -1481,6 +1675,7 @@
                 });
             }
 
+            // Resume toggle
             const toggleResume = document.querySelector('.toggle-resume');
             const resumeContainer = document.querySelector('.resume-container');
             
@@ -1490,6 +1685,23 @@
                     toggleResume.innerHTML = isShowing 
                         ? 'Hide Resume <i class="fas fa-chevron-up"></i>' 
                         : 'Explore Resume <i class="fas fa-chevron-down"></i>';
+                });
+            }
+
+            // Publications toggle
+            const togglePublications = document.querySelector('.toggle-publications');
+            const publicationsContainer = document.querySelector('.publications-container');
+            
+            if (togglePublications && publicationsContainer) {
+                togglePublications.addEventListener('click', () => {
+                    const isShowing = publicationsContainer.classList.toggle('show');
+                    togglePublications.innerHTML = isShowing 
+                        ? 'Hide Publications <i class="fas fa-chevron-up"></i>' 
+                        : 'Explore Publications <i class="fas fa-chevron-down"></i>';
+                    
+                    document.querySelectorAll('.publication-card').forEach((card, i) => {
+                        setTimeout(() => card.classList.toggle('show', isShowing), i * 150);
+                    });
                 });
             }
 
@@ -1509,6 +1721,7 @@
 
             animateOnScroll(document.querySelectorAll('.project-card'), 'animate');
             animateOnScroll(document.querySelectorAll('.skill-item'), 'animate');
+            animateOnScroll(document.querySelectorAll('.publication-card'), 'show');
 
             // ===== CURRENT YEAR IN FOOTER =====
             const currentYearSpan = document.getElementById('current-year');
@@ -1564,5 +1777,3 @@
     </script>
 </body>
 </html>
-
-
