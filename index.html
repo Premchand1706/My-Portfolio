@@ -7,15 +7,6 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    /><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Premchand | Portfolio</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <style>
         /* ===== CORE VARIABLES & RESET ===== */
@@ -295,11 +286,15 @@
 
         .about-image {
             flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .about-image img {
             width: 100%;
             max-width: 400px;
+            height: auto;
             border-radius: 10px;
             box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
         }
@@ -378,22 +373,29 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .toggle-certifications {
             background: transparent;
-            border: none;
+            border: 2px solid var(--primary-color);
             color: var(--primary-color);
             font-size: 1rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 500;
             transition: var(--transition);
         }
 
         .toggle-certifications:hover {
-            color: var(--text-light);
+            background: var(--primary-color);
+            color: var(--dark-color);
+            transform: translateY(-3px);
         }
 
         .toggle-certifications i {
@@ -505,6 +507,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .toggle-publications {
@@ -776,6 +780,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .toggle-resume {
@@ -1263,7 +1269,10 @@
                         </div>
                     </div>
                     <div class="about-image">
-                        <img src="my-pic.jpg" alt="Premchand" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop'; this.alt='Profile placeholder'" />
+                        <!-- Try different filenames that might exist -->
+                        <img src="my-pic.jpg" alt="Premchand" 
+                             onerror="this.onerror=null; this.src='my pic.jpg'; this.alt='Premchand Profile Picture'"
+                             style="max-width: 100%; height: auto;" />
                     </div>
                 </div>
             </div>
@@ -1302,14 +1311,15 @@
             <div class="container">
                 <div class="certifications-header">
                     <h2 class="section-title">Certifications</h2>
-                    <button class="toggle-certifications">
+                    <button class="toggle-certifications" id="toggleCertificationsBtn">
                         Explore Certifications <i class="fas fa-chevron-down"></i>
                     </button>
                 </div>
-                <div class="certifications-container">
+                <div class="certifications-container" id="certificationsContainer">
                     <div class="certification-card">
                         <div class="certification-image">
-                            <img src="Oracle.jpg" alt="Oracle Certified Professional APEX Cloud Developer Certificate" class="cert-img" onerror="this.src='Oracle .jpg'; this.alt='Oracle Certificate'" />
+                            <img src="Oracle.jpg" alt="Oracle Certified Professional APEX Cloud Developer Certificate" class="cert-img" 
+                                 onerror="this.onerror=null; this.src='Oracle .jpg'; this.alt='Oracle Certificate'" />
                         </div>
                         <div class="certification-info">
                             <h3>Oracle Certified Professional APEX Cloud Developer</h3>
@@ -1319,7 +1329,8 @@
                     </div>
                     <div class="certification-card">
                         <div class="certification-image">
-                            <img src="Web-Development.jpg" alt="Web Development Internship Certificate" class="cert-img" onerror="this.src='Web Development .jpg'; this.alt='Web Development Certificate'" />
+                            <img src="Web-Development.jpg" alt="Web Development Internship Certificate" class="cert-img" 
+                                 onerror="this.onerror=null; this.src='Web Development .jpg'; this.alt='Web Development Certificate'" />
                         </div>
                         <div class="certification-info">
                             <h3>Virtual internship in Web Development</h3>
@@ -1329,7 +1340,8 @@
                     </div>
                     <div class="certification-card">
                         <div class="certification-image">
-                            <img src="IBM-PY0101.jpg" alt="Python 101 for Data Science Certificate" class="cert-img" onerror="this.src='IBM PY0101.jpg'; this.alt='Python Certificate'" />
+                            <img src="IBM-PY0101.jpg" alt="Python 101 for Data Science Certificate" class="cert-img" 
+                                 onerror="this.onerror=null; this.src='IBM PY0101.jpg'; this.alt='Python Certificate'" />
                         </div>
                         <div class="certification-info">
                             <h3>Python 101 for Data Science</h3>
@@ -1339,7 +1351,8 @@
                     </div>
                     <div class="certification-card">
                         <div class="certification-image">
-                            <img src="Developing-Front-End-Apps-with-React.png" alt="Developing Front-End Apps with React Certificate" class="cert-img" onerror="this.src='Developing Front-En...'; this.alt='React Certificate'" />
+                            <img src="Developing-Front-End-Apps-with-React.png" alt="Developing Front-End Apps with React Certificate" class="cert-img" 
+                                 onerror="this.onerror=null; this.src='Developing-Front-End...'; this.alt='React Certificate'" />
                         </div>
                         <div class="certification-info">
                             <h3>Developing Front-End Apps with React</h3>
@@ -1364,7 +1377,8 @@
                 <h2 class="section-title">Projects</h2>
                 <div class="projects-container">
                     <div class="project-card">
-                        <img src="DailyHarvest-logo.png" alt="DailyHarvest E-commerce Platform" onerror="this.src='DailyHarvest logo.png'; this.alt='DailyHarvest Project'" />
+                        <img src="DailyHarvest-logo.png" alt="DailyHarvest E-commerce Platform" 
+                             onerror="this.onerror=null; this.src='DailyHarvest logo.png'; this.alt='DailyHarvest Project'" />
                         <div class="project-info">
                             <h3>DailyHarvest</h3>
                             <p>
@@ -1378,7 +1392,8 @@
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="Travel-Buddy-logo.png" alt="Travel Buddy Travel Planning Platform" onerror="this.src='Travel Buddy logo.png'; this.alt='Travel Buddy Project'" />
+                        <img src="Travel-Buddy-logo.png" alt="Travel Buddy Travel Planning Platform" 
+                             onerror="this.onerror=null; this.src='Travel Buddy logo.png'; this.alt='Travel Buddy Project'" />
                         <div class="project-info">
                             <h3>Travel Buddy</h3>
                             <p>
@@ -1391,7 +1406,8 @@
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="PSVlogo.png" alt="PSV Luxury E-commerce Website" onerror="this.src='PSVlogo.png'; this.alt='PSV Website Project'" />
+                        <img src="PSVlogo.png" alt="PSV Luxury E-commerce Website" 
+                             onerror="this.onerror=null; this.src='PSVlogo.png'; this.alt='PSV Website Project'" />
                         <div class="project-info">
                             <h3>PSV Website</h3>
                             <p>
@@ -1413,11 +1429,11 @@
             <div class="container">
                 <div class="publications-header">
                     <h2 class="section-title">Research Publications</h2>
-                    <button class="toggle-publications">
+                    <button class="toggle-publications" id="togglePublicationsBtn">
                         Explore Publications <i class="fas fa-chevron-down"></i>
                     </button>
                 </div>
-                <div class="publications-container">
+                <div class="publications-container" id="publicationsContainer">
                     
                     <div class="publication-card">
                         <h3>Identifying Diabetes Detection Using Machine Learning Algorithms with Kernel PCA</h3>
@@ -1538,11 +1554,11 @@ electronic health records to enhance clinical decision-making.
             <div class="container">
                 <div class="resume-header">
                     <h2 class="section-title">My Resume</h2>
-                    <button class="toggle-resume">
+                    <button class="toggle-resume" id="toggleResumeBtn">
                         Explore Resume <i class="fas fa-chevron-down"></i>
                     </button>
                 </div>
-                <div class="resume-container">
+                <div class="resume-container" id="resumeContainer">
                     <div class="resume-options">
                         <a href="Y.PremChand-Resume.pdf" download="Y.PremChand-Resume.pdf" class="btn">
                             <i class="fas fa-download"></i> Download PDF
@@ -1654,49 +1670,65 @@ electronic health records to enhance clinical decision-making.
             });
             
             // ===== TOGGLE SECTIONS =====
-            // Certifications toggle
-            const toggleCertifications = document.querySelector('.toggle-certifications');
-            const certificationsContainer = document.querySelector('.certifications-container');
+            // Certifications toggle - FIXED with explicit IDs
+            const toggleCertificationsBtn = document.getElementById('toggleCertificationsBtn');
+            const certificationsContainer = document.getElementById('certificationsContainer');
             
-            if (toggleCertifications && certificationsContainer) {
-                toggleCertifications.addEventListener('click', () => {
+            if (toggleCertificationsBtn && certificationsContainer) {
+                toggleCertificationsBtn.addEventListener('click', () => {
                     const isShowing = certificationsContainer.classList.toggle('show');
-                    toggleCertifications.innerHTML = isShowing 
+                    toggleCertificationsBtn.innerHTML = isShowing 
                         ? 'Hide Certifications <i class="fas fa-chevron-up"></i>' 
                         : 'Explore Certifications <i class="fas fa-chevron-down"></i>';
                     
                     document.querySelectorAll('.certification-card').forEach((card, i) => {
-                        setTimeout(() => card.classList.toggle('show', isShowing), i * 150);
+                        setTimeout(() => {
+                            if (isShowing) {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            } else {
+                                card.style.opacity = '0';
+                                card.style.transform = 'translateY(20px)';
+                            }
+                        }, i * 150);
                     });
                 });
             }
 
-            // Resume toggle
-            const toggleResume = document.querySelector('.toggle-resume');
-            const resumeContainer = document.querySelector('.resume-container');
+            // Resume toggle - FIXED with explicit IDs
+            const toggleResumeBtn = document.getElementById('toggleResumeBtn');
+            const resumeContainer = document.getElementById('resumeContainer');
             
-            if (toggleResume && resumeContainer) {
-                toggleResume.addEventListener('click', () => {
+            if (toggleResumeBtn && resumeContainer) {
+                toggleResumeBtn.addEventListener('click', () => {
                     const isShowing = resumeContainer.classList.toggle('show');
-                    toggleResume.innerHTML = isShowing 
+                    toggleResumeBtn.innerHTML = isShowing 
                         ? 'Hide Resume <i class="fas fa-chevron-up"></i>' 
                         : 'Explore Resume <i class="fas fa-chevron-down"></i>';
                 });
             }
 
-            // Publications toggle
-            const togglePublications = document.querySelector('.toggle-publications');
-            const publicationsContainer = document.querySelector('.publications-container');
+            // Publications toggle - FIXED with explicit IDs
+            const togglePublicationsBtn = document.getElementById('togglePublicationsBtn');
+            const publicationsContainer = document.getElementById('publicationsContainer');
             
-            if (togglePublications && publicationsContainer) {
-                togglePublications.addEventListener('click', () => {
+            if (togglePublicationsBtn && publicationsContainer) {
+                togglePublicationsBtn.addEventListener('click', () => {
                     const isShowing = publicationsContainer.classList.toggle('show');
-                    togglePublications.innerHTML = isShowing 
+                    togglePublicationsBtn.innerHTML = isShowing 
                         ? 'Hide Publications <i class="fas fa-chevron-up"></i>' 
                         : 'Explore Publications <i class="fas fa-chevron-down"></i>';
                     
                     document.querySelectorAll('.publication-card').forEach((card, i) => {
-                        setTimeout(() => card.classList.toggle('show', isShowing), i * 150);
+                        setTimeout(() => {
+                            if (isShowing) {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            } else {
+                                card.style.opacity = '0';
+                                card.style.transform = 'translateY(20px)';
+                            }
+                        }, i * 150);
                     });
                 });
             }
@@ -1717,12 +1749,31 @@ electronic health records to enhance clinical decision-making.
 
             animateOnScroll(document.querySelectorAll('.project-card'), 'animate');
             animateOnScroll(document.querySelectorAll('.skill-item'), 'animate');
-            animateOnScroll(document.querySelectorAll('.publication-card'), 'show');
 
             // ===== CURRENT YEAR IN FOOTER =====
             const currentYearSpan = document.getElementById('current-year');
             if(currentYearSpan) {
                 currentYearSpan.textContent = new Date().getFullYear();
+            }
+
+            // ===== FIX FOR PROFILE PICTURE =====
+            // Try multiple filename variations for profile picture
+            const profileImg = document.querySelector('.about-image img');
+            if (profileImg) {
+                const imageNames = ['my-pic.jpg', 'my pic.jpg', 'mypic.jpg', 'profile.jpg', 'photo.jpg'];
+                let currentIndex = 0;
+                
+                profileImg.onerror = function() {
+                    this.onerror = null;
+                    if (currentIndex < imageNames.length) {
+                        this.src = imageNames[currentIndex];
+                        currentIndex++;
+                    } else {
+                        // If all local files fail, use a placeholder
+                        this.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop';
+                        this.alt = 'Profile placeholder';
+                    }
+                };
             }
         });
 
@@ -1743,6 +1794,9 @@ electronic health records to enhance clinical decision-making.
                         if (response.ok) {
                             contactForm.reset();
                             formSuccess.style.display = 'block';
+                            setTimeout(() => {
+                                formSuccess.style.display = 'none';
+                            }, 5000);
                         } else {
                             response.json().then(function(data) {
                                 alert(data.error || 'There was a problem submitting the form.');
@@ -1757,1770 +1811,3 @@ electronic health records to enhance clinical decision-making.
     </script>
 </body>
 </html>
-    <style>
-        /* ===== CORE VARIABLES & RESET ===== */
-        :root {
-            --primary-color: #d21b21cd;
-            --secondary-color: #0066ff;
-            --dark-color: #111;
-            --light-color: #f8f9fa;
-            --text-color: #e9ecef;
-            --text-light: #adb5bd;
-            --accent-color: #00f2ff;
-            --neon-glow: 0 0 10px rgba(0, 242, 255, 0.5);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--dark-color);
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-            transition: var(--transition);
-        }
-
-        a:hover,
-        .project-links a:hover,
-        .certification-link:hover,
-        .social-links a:hover,
-        .footer-social-links a:hover,
-        .publication-link:hover {
-            color: var(--secondary-color);
-            background-color: rgba(0, 242, 255, 0.08);
-            transition: color 0.3s, background 0.3s;
-        }
-
-        h1, h2, h3, h4 {
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            color: var(--text-light);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section {
-            padding: 6rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-            color: var(--primary-color);
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary-color);
-            border-radius: 3px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            background: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            border-radius: 30px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-        }
-
-        .btn:hover {
-            background: var(--primary-color);
-            color: var(--dark-color);
-            transform: translateY(-3px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary-color);
-            color: var(--dark-color);
-        }
-
-        .btn-small {
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        /* ===== HEADER ===== */
-        header {
-            background-color: rgba(17, 17, 17, 0.95);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.05rem 1.6rem;
-        }
-
-        .logo {
-            font-size: 1.55rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 1.6rem;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-            font-weight: 500;
-            position: relative;
-            font-size: 0.9rem;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .burger {
-            display: none;
-            cursor: pointer;
-        }
-
-        .burger div {
-            width: 22px;
-            height: 2.8px;
-            background-color: var(--primary-color);
-            margin: 4.5px;
-            transition: var(--transition);
-        }
-
-        .burger.toggle .line1 {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-        .burger.toggle .line2 {
-            opacity: 0;
-        }
-        .burger.toggle .line3 {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-
-        /* ===== HERO SECTION ===== */
-        #home {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(rgba(17, 17, 17, 0.9), rgba(17, 17, 17, 0.9)),
-                        url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
-            position: relative;
-        }
-
-        .hero-content {
-            flex: 1;
-            padding-right: 2rem;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero-content h1 span {
-            color: var(--primary-color);
-        }
-
-        .hero-content h2 {
-            font-size: 1.8rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .hero-image {
-            flex: 1;
-            text-align: center;
-        }
-
-        .hero-image img {
-            width: 350px;
-            height: 350px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid var(--primary-color);
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.3);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-
-        /* ===== ABOUT SECTION ===== */
-        #about {
-            background-color: var(--dark-color);
-        }
-
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-
-        .about-image {
-            flex: 1;
-        }
-
-        .about-image img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-        }
-
-        .about-info {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-        }
-
-        .info-item i {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            margin-right: 1rem;
-        }
-
-        /* ===== EDUCATION SECTION ===== */
-        #education {
-            background-color: #0d0d0d;
-        }
-
-        .education-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .education-card {
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary-color);
-            transition: var(--transition);
-        }
-
-        .education-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .education-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .education-card .date {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        /* ===== CERTIFICATIONS SECTION ===== */
-        #certifications {
-            background-color: var(--dark-color);
-            position: relative;
-        }
-
-        .certifications-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 3rem;
-        }
-
-        .toggle-certifications {
-            background: transparent;
-            border: none;
-            color: var(--primary-color);
-            font-size: 1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .toggle-certifications:hover {
-            color: var(--text-light);
-        }
-
-        .toggle-certifications i {
-            transition: var(--transition);
-        }
-
-        .certifications-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out;
-        }
-
-        .certifications-container.show {
-            max-height: 1000px;
-        }
-
-        .certification-card {
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s, transform 0.3s, border 0.3s;
-            border: 2px solid transparent;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        .certifications-container.show .certification-card {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .certification-card:hover {
-            box-shadow: 0 8px 32px rgba(0, 242, 255, 0.25), 0 2px 8px rgba(0,0,0,0.15);
-            transform: translateY(-10px) scale(1.03);
-            border: 2px solid var(--primary-color);
-            background: linear-gradient(120deg, rgba(0,242,255,0.08) 0%, rgba(0,102,255,0.08) 100%);
-        }
-
-        .certification-card:hover .certification-image img {
-            filter: brightness(1.1) saturate(1.2) drop-shadow(0 0 12px var(--primary-color));
-            transform: scale(1.08) rotate(-2deg);
-            transition: filter 0.3s, transform 0.3s;
-        }
-
-        .certification-card:hover .certification-info h3 {
-            color: var(--primary-color);
-            letter-spacing: 1px;
-            transition: color 0.3s, letter-spacing 0.3s;
-        }
-
-        .certification-card:nth-child(1) { transition-delay: 0.1s; }
-        .certification-card:nth-child(2) { transition-delay: 0.2s; }
-        .certification-card:nth-child(3) { transition-delay: 0.3s; }
-        .certification-card:nth-child(4) { transition-delay: 0.4s; }
-
-        .certification-image {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .certification-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .certification-card:hover .certification-image img {
-            transform: scale(1.1);
-        }
-
-        .certification-info {
-            padding: 1.5rem;
-        }
-
-        .certification-info h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .certification-info p {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-        }
-
-        .certification-link {
-            display: inline-block;
-            margin-top: 1rem;
-            color: var(--primary-color);
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .certification-link:hover {
-            color: var(--text-light);
-        }
-
-        /* ===== PUBLICATIONS SECTION ===== */
-        #publications {
-            background-color: #0d0d0d;
-        }
-
-        .publications-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 3rem;
-        }
-
-        .toggle-publications {
-            background: var(--primary-color);
-            color: var(--dark-color);
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.2rem;
-            border-radius: 30px;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(0,242,255,0.08);
-            transition: background 0.3s, color 0.3s;
-        }
-
-        .toggle-publications:hover {
-            background: var(--secondary-color);
-            color: #fff;
-        }
-
-        .publications-container {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, opacity 0.3s ease;
-            opacity: 0;
-        }
-
-        .publications-container.show {
-            max-height: 1000px;
-            opacity: 1;
-        }
-
-        .publication-card {
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--primary-color);
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .publications-container.show .publication-card {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .publication-card:nth-child(1) { transition-delay: 0.1s; }
-        .publication-card:nth-child(2) { transition-delay: 0.2s; }
-        .publication-card:nth-child(3) { transition-delay: 0.3s; }
-
-        .publication-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
-            background: linear-gradient(120deg, rgba(0,242,255,0.05) 0%, rgba(0,102,255,0.05) 100%);
-        }
-
-        .publication-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-
-        .publication-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .publication-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .publication-meta i {
-            color: var(--primary-color);
-        }
-
-        .publication-abstract {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .publication-link {
-            display: inline-block;
-            color: var(--primary-color);
-            font-weight: 500;
-            transition: var(--transition);
-            border: 1px solid var(--primary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-        }
-
-        .publication-link:hover {
-            background: var(--primary-color);
-            color: var(--dark-color);
-            transform: translateY(-2px);
-        }
-
-        /* ===== PROJECTS SECTION ===== */
-        #projects {
-            background-color: #0d0d0d;
-        }
-
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .project-card.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .project-card:nth-child(1) { transition-delay: 0.1s; }
-        .project-card:nth-child(2) { transition-delay: 0.2s; }
-        .project-card:nth-child(3) { transition-delay: 0.3s; }
-
-        .project-card:hover {
-            box-shadow: 0 8px 24px rgba(0, 242, 255, 0.25);
-            transform: translateY(-12px) scale(1.03);
-            border: 2px solid var(--primary-color);
-            transition: box-shadow 0.3s, transform 0.3s, border 0.3s;
-        }
-
-        .project-card:hover img {
-            filter: brightness(1.08) saturate(1.2);
-            transition: filter 0.3s;
-        }
-
-        .project-card:hover .project-info h3 {
-            color: var(--primary-color);
-            letter-spacing: 1px;
-            transition: color 0.3s, letter-spacing 0.3s;
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .project-info {
-            padding: 1.5rem;
-        }
-
-        .project-info h3 {
-            color: var(--primary-color);
-        }
-
-        .project-info p {
-            margin-bottom: 1.5rem;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        /* ===== SKILLS SECTION ===== */
-        #skills {
-            background-color: var(--dark-color);
-        }
-
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .skill-item {
-            width: 120px;
-            height: 120px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 50%;
-            transition: var(--transition);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: scale(0.8);
-        }
-
-        .skill-item.animate {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .skill-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
-        }
-
-        .skill-item i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .skill-item p {
-            font-size: 0.9rem;
-            text-align: center;
-            margin: 0;
-            transition: var(--transition);
-        }
-
-        .skill-rating {
-            position: static;
-            margin-top: 0.5rem;
-            width: 100%;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-            display: flex;
-            justify-content: center;
-            gap: 2px;
-        }
-
-        .skill-item.active .skill-rating {
-            opacity: 1;
-        }
-
-        .skill-rating i {
-            color: #ffd700;
-            font-size: 1.3rem;
-            filter: drop-shadow(0 0 6px #fff700cc);
-            animation: shine 1.2s linear infinite alternate;
-        }
-
-        @keyframes shine {
-            0% { filter: brightness(1) drop-shadow(0 0 4px #ffd70088);}
-            100% { filter: brightness(1.3) drop-shadow(0 0 8px #fff700cc);}
-        }
-
-        /* ===== RESUME SECTION ===== */
-        #resume {
-          background-color: #0d0d0d;
-        }
-
-        .resume-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .toggle-resume {
-            background: var(--primary-color);
-            color: var(--dark-color);
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.2rem;
-            border-radius: 30px;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(0,242,255,0.08);
-            transition: background 0.3s, color 0.3s;
-        }
-
-        .toggle-resume:hover {
-            background: var(--secondary-color);
-            color: #fff;
-        }
-
-        .resume-container {
-            max-height: 0;
-            color: #00f2ff;
-            overflow: hidden;
-            transition: max-height 0.5s ease, opacity 0.3s ease;
-            opacity: 0;
-        }
-
-        .resume-container.show {
-            max-height: 1000px; /* Adjust as needed */
-            opacity: 1;
-        }
-
-        .resume-options {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            justify-content: center;
-        }
-
-        .pdf-preview {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-top: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* ===== CONTACT SECTION ===== */
-        #contact {
-            background-color: #0d0d0d;
-        }
-
-        .contact-container {
-            display: flex;
-            gap: 3rem;
-        }
-
-        .contact-info {
-            flex: 1;
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-info h3 {
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-            text-align: center;
-        }
-
-        .contact-form {
-            flex: 1;
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            background-color: rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--primary-color);
-            border-radius: 5px;
-            font-family: inherit;
-            transition: var(--transition);
-            color: var(--text-light);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* ===== FORM STATUS MESSAGES ===== */
-        .form-status {
-            padding: 10px;
-            margin: 15px 0;
-            border-radius: 5px;
-            text-align: center;
-            display: none;
-        }
-
-        .form-status.success {
-            background-color: rgba(76, 175, 80, 0.2);
-            color: #4CAF50;
-            border: 1px solid #4CAF50;
-            display: block;
-        }
-
-        .form-status.error {
-            background-color: rgba(244, 67, 54, 0.2);
-            color: #f44336;
-            border: 1px solid #f44336;
-            display: block;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            text-align: center;
-            padding: 0.9rem 0;
-            background-color: rgba(0, 0, 0, 0.9);
-            color: var(--text-light);
-            border-top: 1px solid var(--primary-color);
-            font-size: 0.98rem;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 0.95rem;
-        }
-
-        .footer-social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.35rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .footer-social-links a {
-            color: white;
-            font-size: 1.25rem;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .footer-social-links a:hover {
-            color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-
-        /* ===== MODAL ===== */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            overflow: auto;
-        }
-
-        .modal-img, .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-            animation-name: zoom;
-            animation-duration: 0.6s;
-            border-radius: 10px;
-            box-shadow: 0 0 20px #000;
-        }
-
-        @keyframes zoom {
-            from {transform: scale(0.1)} 
-            to {transform: scale(1)}
-        }
-
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            z-index: 1100;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .modal-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
-            box-sizing: border-box;
-            z-index: 1100;
-        }
-
-        .modal-controls button {
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            font-size: 30px;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.2s;
-        }
-
-        .modal-controls button:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-        
-        /* ===== FORM VALIDATION STYLES ===== */
-        input:invalid,
-        textarea:invalid {
-            border-color: #ff4444;
-        }
-
-        input:focus:invalid,
-        textarea:focus:invalid {
-            box-shadow: 0 0 5px rgba(255, 68, 68, 0.5);
-        }
-
-
-        /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 992px) {
-            .hero-content, .about-text {
-                padding-right: 0;
-            }
-            .contact-container {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: absolute;
-                right: 0;
-                top: 65px;
-                background-color: rgba(0, 0, 0, 0.9);
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-                padding: 2rem 0;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-                transform: translateY(-150%);
-                transition: var(--transition);
-                z-index: 999;
-                border-bottom: 1px solid var(--primary-color);
-            }
-            .nav-links.active {
-                transform: translateY(0);
-            }
-            .nav-links li {
-                margin: 1rem 0;
-            }
-            .burger {
-                display: block;
-            }
-            #home, .about-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .hero-image {
-                margin-top: 3rem;
-            }
-            .hero-buttons {
-                justify-content: center;
-            }
-            .about-image {
-                margin-bottom: 2rem;
-            }
-            .certifications-container,
-            .projects-container,
-            .education-container {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-            .skills-container {
-                flex-wrap: wrap;
-                gap: 1.2rem;
-            }
-            .skill-item {
-                width: 80px;
-                height: 80px;
-                margin-bottom: 1.2rem;
-            }
-            .skill-item i {
-                font-size: 2rem;
-            }
-            .skill-item p {
-                font-size: 0.8rem;
-            }
-            .contact-container {
-                gap: 1.2rem;
-            }
-            .resume-options {
-                flex-direction: column;
-                align-items: center;
-            }
-            .pdf-preview iframe {
-                height: 400px;
-            }
-            .footer-social-links {
-                gap: 1rem;
-            }
-            .publications-header {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .publication-meta {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .hero-buttons,
-            .project-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .skill-item {
-                width: 100px;
-                height: 100px;
-            }
-            .publication-card {
-                padding: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 1rem;
-            }
-            .section-title {
-                font-size: 1.8rem;
-            }
-            .skill-item {
-                width: 70px;
-                height: 70px;
-            }
-            .skill-item i {
-                font-size: 1.5rem;
-            }
-            .skill-item p {
-                font-size: 0.7rem;
-            }
-            .certification-image {
-                height: 120px;
-            }
-            .project-card img {
-                height: 150px;
-            }
-            .resume-header {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .pdf-preview iframe {
-                height: 300px;
-            }
-            .publication-card {
-                padding: 1rem;
-            }
-            .publication-card h3 {
-                font-size: 1.3rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">Prem</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home" class="section hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Hi, I'm <span>Premchand </span></h1>
-                    <h2>Computer Science Student</h2>
-                    <p>
-                        Passionate about creating innovative solutions through code.
-                        Currently pursuing my B.Tech in Computer Science at Jain
-                        University, Bangalore.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn">View Projects</a>
-                        <a href="#contact" class="btn btn-outline">Contact Me</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>
-                            I'm a 3rd year B.Tech student at Jain University, Bangalore,
-                            specializing in Computer Science and Engineering. My journey in
-                            technology began with a curiosity about how software works,
-                            which has evolved into a passion for developing practical
-                            solutions.
-                        </p>
-                        <p>
-                            When I'm not coding, you can find me exploring new technologies,
-                            contributing to open-source projects, or participating in
-                            hackathons. I believe in continuous learning and pushing
-                            boundaries to create impactful software.
-                        </p>
-                        <div class="about-info">
-                            <div class="info-item">
-                                <i class="fas fa-user"></i>
-                                <p>Premchand</p>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-envelope"></i>
-                                <p>premchand17062005y@gmail.com</p>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <p>Bangalore, India</p>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <p>Jain University</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-image">
-                        <img src="my-pic.jpg" alt="Premchand" />
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="education" class="section">
-            <div class="container">
-                <h2 class="section-title">Education</h2>
-                <div class="education-container">
-                     <div class="education-card">
-                        <h3>Secondary School</h3>
-                        <span class="date">2021</span>
-                        <p>Sri chaitanya, Andhra Pradesh</p>
-                        <p>CGPA: 10/10</p>
-                    </div>
-                    <div class="education-card">
-                        <h3>Pre-University College</h3>
-                        <span class="date">2021 - 2023</span>
-                        <p>Sri chaitanya Junior College, Bangalore</p>
-                        <p>MPC</p>
-                        <p>Percentage: 75%</p>
-                    </div>
-                   
-                    <div class="education-card">
-                        <h3>Bachelor of Technology</h3>
-                        <span class="date">2023 - Present</span>
-                        <p>Jain University, Bangalore</p>
-                        <p>Computer Science and Engineering</p>
-                        <p>CGPA: 8.0 /10 -Avg</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="certifications" class="section">
-            <div class="container">
-                <div class="certifications-header">
-                    <h2 class="section-title">Certifications</h2>
-                    <button class="toggle-certifications">
-                        Explore Certifications <i class="fas fa-chevron-down"></i>
-                    </button>
-                </div>
-                <div class="certifications-container">
-                    <div class="certification-card">
-                        <div class="certification-image">
-                            <img src="Oracle.jpg" alt="Oracle Certified Professional APEX Cloud Developer Certificate" class="cert-img" />
-                        </div>
-                        <div class="certification-info">
-                            <h3>Oracle Certified Professional APEX Cloud Developer</h3>
-                            <p>Oracle University</p>
-                            <a href="https://drive.google.com/drive/folders/1lp5Y_2ZWPM0nUULqn48vii9z2uM1x8U4" class="certification-link" target="_blank">View Certificate</a>
-                        </div>
-                    </div>
-                    <div class="certification-card">
-                        <div class="certification-image">
-                            <img src="Web-Development.jpg" alt="Web Development Internship Certificate" class="cert-img" />
-                        </div>
-                        <div class="certification-info">
-                            <h3>Virtual internship in Web Development</h3>
-                            <p>ApexPlanet Software Pvt. Ltd. </p>
-                            <a href="https://drive.google.com/drive/folders/1lp5Y_2ZWPM0nUULqn48vii9z2uM1x8U4" class="certification-link" target="_blank">View Certificate</a>
-                        </div>
-                    </div>
-                    <div class="certification-card">
-                        <div class="certification-image">
-                            <img src="IBM-PY0101.jpg" alt="Python 101 for Data Science Certificate" class="cert-img" />
-                        </div>
-                        <div class="certification-info">
-                            <h3>Python 101 for Data Science</h3>
-                            <p>IBM</p>
-                            <a href="https://drive.google.com/drive/folders/1lp5Y_2ZWPM0nUULqn48vii9z2uM1x8U4" class="certification-link" target="_blank">View Certificate</a>
-                        </div>
-                    </div>
-                    <div class="certification-card">
-                        <div class="certification-image">
-                            <img src="Developing-Front-End-Apps-with-React.png" alt="Developing Front-End Apps with React Certificate" class="cert-img" />
-                        </div>
-                        <div class="certification-info">
-                            <h3>Developing Front-End Apps with React</h3>
-                            <p>IBM-Coursera</p>
-                            <a href="https://drive.google.com/drive/folders/1lp5Y_2ZWPM0nUULqn48vii9z2uM1x8U4" class="certification-link" target="_blank">View Certificate</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="certificates-drive-link" style="text-align:center; margin: 2rem 0;">
-                    <p style="font-size:1.1rem; color:var(--primary-color, #00f2ff); margin-bottom:0.5rem;">
-                        Want to see all my certificates at once?
-                    </p>
-                    <a href="https://drive.google.com/drive/folders/1r_2IaU2WYInsLseSt5-kVHPA6mnovvYj" class="btn btn-small btn-outline" target="_blank" style="display:inline-block;">
-                        View All Certificates on Google Drive
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="section">
-            <div class="container">
-                <h2 class="section-title">Projects</h2>
-                <div class="projects-container">
-                    <div class="project-card">
-                        <img src="DailyHarvest-logo.png" alt="DailyHarvest E-commerce Platform" />
-                        <div class="project-info">
-                            <h3>DailyHarvest</h3>
-                            <p>
-                                A full-stack e-commerce platform for organic groceries—from fresh vegetables and fruits to milk, grains, and daily essentials—all delivered with guaranteed quality and on-time service,
-                                Direct from local farms to your home.
-                            </p>
-                            <div class="project-links">
-                                <a href="https://premchand1706.github.io/DailyHarvest/index.html" class="btn btn-small" target="_blank">Live Demo</a>
-                                <a href="https://github.com/Premchand1706/DailyHarvest" class="btn btn-small btn-outline" target="_blank">Code</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <img src="Travel-Buddy-logo.png" alt="Travel Buddy Travel Planning Platform" />
-                        <div class="project-info">
-                            <h3>Travel Buddy</h3>
-                            <p>
-                                A full-stack travel planning platform that consolidates essential tools—from an interactive map and itinerary planner to a budget calculator and currency converter—all designed to create a seamless and organized adventure.
-                            </p>
-                            <div class="project-links">
-                                <a href="https://premchand1706.github.io/ApexPlanet-Internship-Task-5/" class="btn btn-small" target="_blank">Live Demo</a>
-                                <a href="https://github.com/Premchand1706/ApexPlanet-Internship-Task-5" class="btn btn-small btn-outline" target="_blank">Code</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <img src="PSVlogo.png" alt="PSV Luxury E-commerce Website" />
-                        <div class="project-info">
-                            <h3>PSV Website</h3>
-                            <p>
-                                A full-stack e-commerce platform showcasing a curated collection of luxury items —from vintage fashion and designer clothes to modern high-tech gadgets—all selected to embody timeless elegance and modern sophistication.
-                            </p>
-                            <div class="project-links">
-                                <a href="https://premchand1706.github.io/PSV-Website/PSV-home.html" class="btn btn-small" target="_blank">Live Demo</a>
-                                <a href="https://github.com/Premchand1706/PSV-Website" class="btn btn-small btn-outline" target="_blank">Code</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </section>
-
-        <!-- Publications Section -->
-        <section id="publications" class="section">
-            <div class="container">
-                <div class="publications-header">
-                    <h2 class="section-title">Research Publications</h2>
-                    <button class="toggle-publications">
-                        Explore Publications <i class="fas fa-chevron-down"></i>
-                    </button>
-                </div>
-                <div class="publications-container">
-                    
-                    <div class="publication-card">
-                        <h3>Identifying Diabetes Detection Using Machine Learning Algorithms with Kernel PCA</h3>
-                        <div class="publication-meta">
-                            <span><i class="fas fa-book"></i> Intelligent Machine Processes and AI-Centric Technologies (IMPACT 2025)</span>
-                            <span><i class="fas fa-calendar-alt"></i> 05-06 December 2025</span>
-                            <span><i class="fas fa-user"></i> Co-authored with Prof. Suriya Prakash J</span>
-                            <span><i class="fas fa-tag"></i>Machine learning, Healthcare analytics, Diabetes prediction</span>
-                        </div>
-                        <p class="publication-abstract">
-                        This research explores the use of machine learning in identifying early-stage diabetes by analyzing patient health
-records. Fifteen distinct algorithms were rigorously evaluated using a curated dataset of key health metrics. Performance
-metrics such as accuracy, sensitivity, specificity, and predictive capability were measured across multiple classification
-thresholds (0.2, 0.4, 0.6) to assess model effectiveness.Among the tested models, Kernel Support Vector Machine (KSVM) with
-
-a linear kernel at a 0.2 threshold achieved perfect 100% accuracy, demonstrating superior predictive capability. Other high-
-performing models included CatBoost and XGBoost, which attained 99.04% accuracy under optimal configurations. The
-
-study highlights the significance of threshold selection in model performance, with lower thresholds generally yielding better
-results.The findings suggest that KSVM (Linear) is the most effective algorithm for diabetes prediction, offering healthcare
-professionals a reliable tool for early diagnosis. Future research could explore real-world deployment and integration with
-electronic health records to enhance clinical decision-making.
-                        </p>
-                        <a href="Identifying Diabetes Detection Using Machine Learning Algorithms with Kernel PCA.pdf" class="publication-link" target="_blank">
-                            <i class="fas fa-file-pdf"></i> Read Full Paper
-                        </a>
-                    </div>
-                    
-                    
-                
-                <!-- Publications Drive Link -->
-                <div class="publications-drive-link" style="text-align:center; margin: 2rem 0;">
-                    <p style="font-size:1.1rem; color:var(--primary-color, #00f2ff); margin-bottom:0.5rem;">
-                        Access all my research publications:
-                    </p>
-                    <a href="https://drive.google.com/drive/folders/1n-dtrRV2pYUvDNhCNtuZYPycScEuS0U_" class="btn btn-small btn-outline" target="_blank" style="display:inline-block;">
-                        <i class="fas fa-folder-open"></i> View All Publications
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="section">
-            <div class="container">
-                <h2 class="section-title">Skills</h2>
-                <div class="skills-container">
-                    <!-- Web Development -->
-                    <div class="skill-item" data-rating="4">
-                        <i class="fab fa-html5"></i>
-                        <p>HTML5</p>
-                        <div class="skill-rating"></div>
-                    </div>
-                    <div class="skill-item" data-rating="4">
-                        <i class="fab fa-css3-alt"></i>
-                        <p>CSS3</p>
-                        <div class="skill-rating"></div>
-                    </div>
-                    <div class="skill-item" data-rating="3">
-                        <i class="fab fa-js"></i>
-                        <p>JavaScript</p>
-                        <div class="skill-rating"></div>
-                    </div>
-                    <div class="skill-item" data-rating="3">
-                        <i class="fab fa-react"></i>
-                        <p>React</p>
-                        <div class="skill-rating"></div>
-                    </div>
-                    <div class="skill-item" data-rating="3">
-                        <i class="fab fa-vuejs"></i>
-                        <p>Vue.js</p>
-                        <div class="skill-rating"></div>
-                    </div>
-                    <!-- Backend Development -->
-                    <div class="skill-item" data-rating="3">
-                        <i class="fab fa-node-js"></i>
-                        <p>Node.js</p>
-                        <div class="skill-rating"></div>
-                    </div>
-                    <!-- Database Management -->
-                    <div class="skill-item" data-rating="3">
-                        <i class="fas fa-database"></i>
-                        <p>MySQL</p>
-                        <div class="skill-rating"></div>
-                    </div>
-                    <!-- Problem-solving -->
-                    <div class="skill-item" data-rating="3">
-                        <i class="fas fa-lightbulb"></i>
-                        <p>Problem-solving</p>
-                        <div class="skill-rating"></div>
-                    </div>
-                    <!-- Video Editing -->
-                    <div class="skill-item" data-rating="3">
-                        <i class="fas fa-video"></i>
-                        <p>Video Editing</p>
-                        <div class="skill-rating"></div>
-                    </div>
-                    <div class="skill-item" data-rating="3">
-                        <i class="fas fa-cut"></i>
-                        <p>Editing Techniques</p>
-                        <div class="skill-rating"></div>
-                    </div>
-                    <div class="skill-item" data-rating="3">
-                        <i class="fas fa-film"></i>
-                        <p>Motion Graphics</p>
-                        <div class="skill-rating"></div>
-                    </div>
-                    <!-- Python -->
-                    <div class="skill-item" data-rating="4">
-                        <i class="fab fa-python"></i>
-                        <p>Python</p>
-                        <div class="skill-rating"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="resume" class="section">
-            <div class="container">
-                <div class="resume-header">
-                    <h2 class="section-title">My Resume</h2>
-                    <button class="toggle-resume">
-                        Explore Resume <i class="fas fa-chevron-down"></i>
-                    </button>
-                </div>
-                <div class="resume-container">
-                    <div class="resume-options">
-                        <a href="Y.PremChand-Resume.pdf" download="Y.PremChand-Resume.pdf" class="btn">
-                            <i class="fas fa-download"></i> Download PDF
-                        </a>
-                        <a href="Y.PremChand-Resume.pdf" target="_blank" class="btn btn-outline">
-                            <i class="fas fa-expand"></i> Open Fullscreen
-                        </a>
-                    </div>
-                    <div class="pdf-preview">
-                        <iframe src="Y.PremChand-Resume.pdf#view=fitH" width="100%" height="500px" title="Resume Preview"></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <h3>Contact Information</h3>
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <p>premchand17062005y@gmail.com</p>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <p>+91 8919098339</p>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <p>Bangalore, India</p>
-                        </div>
-                    </div>
-                    <form class="contact-form" action="https://formspree.io/f/xldpelwd" method="POST" id="contactForm">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="subject" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <div id="form-success" style="display:none; color:#4CAF50; font-size:1.1rem; margin-bottom:1rem; text-align:center;">
-        <strong>Thanks!</strong><br>
-        The form was submitted successfully.<br>
-        Shortly I will get in touch with you.
-    </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="footer-social-links">
-            <a href="https://github.com/Premchand1706" target="_blank" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/premchand-yedoti-8283b4296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://www.instagram.com/premchand__2005/" target="_blank" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://leetcode.com/u/Premchand17/" target="_blank" aria-label="LeetCode">
-                <i class="fas fa-code"></i>
-            </a>
-        </div>
-        <p>&copy; <span id="current-year"></span> Premchand. All rights reserved.</p>
-    </footer>
-    <div id="ttt-modal" class="modal">
-      <span class="close" id="ttt-close">&times;</span>
-      <div class="modal-content">
-        <img class="modal-img" id="ttt-modal-img" src="" alt="Tic Tac Toe Screenshot" />
-        <div class="modal-caption"></div>
-      </div>
-      <div class="modal-controls">
-        <button id="ttt-prev" class="modal-arrow">&#10094;</button>
-        <button id="ttt-next" class="modal-arrow">&#10095;</button>
-      </div>
-    </div>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // ===== MOBILE NAVIGATION =====
-            const burger = document.querySelector('.burger');
-            const navLinks = document.querySelector('.nav-links');
-            const navItems = document.querySelectorAll('.nav-links li');
-            
-            burger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                burger.classList.toggle('toggle');
-            });
-            
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    burger.classList.remove('toggle');
-                });
-            });
-            
-            // ===== SMOOTH SCROLLING =====
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 65,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // ===== TOGGLE SECTIONS =====
-            // Certifications toggle
-            const toggleCertifications = document.querySelector('.toggle-certifications');
-            const certificationsContainer = document.querySelector('.certifications-container');
-            
-            if (toggleCertifications && certificationsContainer) {
-                toggleCertifications.addEventListener('click', () => {
-                    const isShowing = certificationsContainer.classList.toggle('show');
-                    toggleCertifications.innerHTML = isShowing 
-                        ? 'Hide Certifications <i class="fas fa-chevron-up"></i>' 
-                        : 'Explore Certifications <i class="fas fa-chevron-down"></i>';
-                    
-                    document.querySelectorAll('.certification-card').forEach((card, i) => {
-                        setTimeout(() => card.classList.toggle('show', isShowing), i * 150);
-                    });
-                });
-            }
-
-            // Resume toggle
-            const toggleResume = document.querySelector('.toggle-resume');
-            const resumeContainer = document.querySelector('.resume-container');
-            
-            if (toggleResume && resumeContainer) {
-                toggleResume.addEventListener('click', () => {
-                    const isShowing = resumeContainer.classList.toggle('show');
-                    toggleResume.innerHTML = isShowing 
-                        ? 'Hide Resume <i class="fas fa-chevron-up"></i>' 
-                        : 'Explore Resume <i class="fas fa-chevron-down"></i>';
-                });
-            }
-
-            // Publications toggle
-            const togglePublications = document.querySelector('.toggle-publications');
-            const publicationsContainer = document.querySelector('.publications-container');
-            
-            if (togglePublications && publicationsContainer) {
-                togglePublications.addEventListener('click', () => {
-                    const isShowing = publicationsContainer.classList.toggle('show');
-                    togglePublications.innerHTML = isShowing 
-                        ? 'Hide Publications <i class="fas fa-chevron-up"></i>' 
-                        : 'Explore Publications <i class="fas fa-chevron-down"></i>';
-                    
-                    document.querySelectorAll('.publication-card').forEach((card, i) => {
-                        setTimeout(() => card.classList.toggle('show', isShowing), i * 150);
-                    });
-                });
-            }
-
-            // ===== ANIMATIONS ON SCROLL =====
-            const animateOnScroll = (elements, animationClass) => {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add(animationClass);
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.1 });
-                
-                elements.forEach(element => observer.observe(element));
-            };
-
-            animateOnScroll(document.querySelectorAll('.project-card'), 'animate');
-            animateOnScroll(document.querySelectorAll('.skill-item'), 'animate');
-            animateOnScroll(document.querySelectorAll('.publication-card'), 'show');
-
-            // ===== CURRENT YEAR IN FOOTER =====
-            const currentYearSpan = document.getElementById('current-year');
-            if(currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
-            }
-        });
-
-        // ===== LAZY LOAD IMAGES ON WINDOW LOAD =====
-        window.addEventListener('load', function() {
-            const lazyImages = document.querySelectorAll('img[data-src]');
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.removeAttribute('data-src');
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-            lazyImages.forEach(img => imageObserver.observe(img));
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var contactForm = document.getElementById('contactForm');
-            var formSuccess = document.getElementById('form-success');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    var formData = new FormData(contactForm);
-                    fetch(contactForm.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    }).then(function(response) {
-                        if (response.ok) {
-                            contactForm.reset();
-                            formSuccess.style.display = 'block';
-                        } else {
-                            response.json().then(function(data) {
-                                alert(data.error || 'There was a problem submitting the form.');
-                            });
-                        }
-                    }).catch(function(error) {
-                        alert('There was a problem submitting the form.');
-                    });
-                });
-            }
-        });
-    </script>
-</body>
-</html>
-
