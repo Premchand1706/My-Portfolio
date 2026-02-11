@@ -949,6 +949,91 @@
             transform: translateY(-3px);
         }
 
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .modal-img, .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #000;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0.1)} 
+            to {transform: scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            z-index: 1100;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+            z-index: 1100;
+        }
+
+        .modal-controls button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 30px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+
+        .modal-controls button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        /* ===== FORM VALIDATION STYLES ===== */
+        input:invalid,
+        textarea:invalid {
+            border-color: #ff4444;
+        }
+
+        input:focus:invalid,
+        textarea:focus:invalid {
+            box-shadow: 0 0 5px rgba(255, 68, 68, 0.5);
+        }
+
+
         /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 992px) {
             .hero-content, .about-text {
@@ -1184,12 +1269,11 @@
                         </div>
                     </div>
                     <div class="about-image">
-                        <img 
-                            src="my-pic.jpg" 
-                            alt="Premchand" 
-                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop';"
-                            style="max-width: 100%; height: auto;" 
-                        />
+                        <!-- DIRECT GITHUB RAW URL - Replace YOUR-REPO-NAME with your actual repository name -->
+                        <img src="https://raw.githubusercontent.com/Premchand1706/Portfolio/main/my-pic.jpg" 
+                             alt="Premchand" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop'; this.alt='Profile placeholder'"
+                             style="max-width: 100%; height: auto;" />
                     </div>
                 </div>
             </div>
@@ -1212,7 +1296,7 @@
                         <p>MPC</p>
                         <p>Percentage: 75%</p>
                     </div>
-                    
+                   
                     <div class="education-card">
                         <h3>Bachelor of Technology</h3>
                         <span class="date">2023 - Present</span>
@@ -1236,7 +1320,7 @@
                     <div class="certification-card">
                         <div class="certification-image">
                             <img src="Oracle.jpg" alt="Oracle Certified Professional APEX Cloud Developer Certificate" class="cert-img" 
-                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Certificate+Image+Missing';" />
+                                 onerror="this.onerror=null; this.src='Oracle .jpg'; this.alt='Oracle Certificate'" />
                         </div>
                         <div class="certification-info">
                             <h3>Oracle Certified Professional APEX Cloud Developer</h3>
@@ -1247,7 +1331,7 @@
                     <div class="certification-card">
                         <div class="certification-image">
                             <img src="Web-Development.jpg" alt="Web Development Internship Certificate" class="cert-img" 
-                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Certificate+Image+Missing';" />
+                                 onerror="this.onerror=null; this.src='Web Development .jpg'; this.alt='Web Development Certificate'" />
                         </div>
                         <div class="certification-info">
                             <h3>Virtual internship in Web Development</h3>
@@ -1258,7 +1342,7 @@
                     <div class="certification-card">
                         <div class="certification-image">
                             <img src="IBM-PY0101.jpg" alt="Python 101 for Data Science Certificate" class="cert-img" 
-                                 onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Certificate+Image+Missing';" />
+                                 onerror="this.onerror=null; this.src='IBM PY0101.jpg'; this.alt='Python Certificate'" />
                         </div>
                         <div class="certification-info">
                             <h3>Python 101 for Data Science</h3>
@@ -1268,12 +1352,11 @@
                     </div>
                     <div class="certification-card">
                         <div class="certification-image">
-                            <img 
-                                src="Developing-Front-End-Apps-with-React.png" 
-                                alt="Developing Front-End Apps with React Certificate" 
-                                class="cert-img" 
-                                onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Certificate+Image+Missing';" 
-                            />
+                            <!-- DIRECT GITHUB RAW URL for React Certificate - Replace YOUR-REPO-NAME -->
+                            <img src="https://raw.githubusercontent.com/Premchand1706/Portfolio/main/Developing-Front-End-Apps-with-React.png" 
+                                 alt="Developing Front-End Apps with React Certificate" 
+                                 class="cert-img" 
+                                 onerror="this.onerror=null; this.src='Developing-Front-End...'; this.alt='React Certificate'" />
                         </div>
                         <div class="certification-info">
                             <h3>Developing Front-End Apps with React</h3>
@@ -1299,7 +1382,7 @@
                 <div class="projects-container">
                     <div class="project-card">
                         <img src="DailyHarvest-logo.png" alt="DailyHarvest E-commerce Platform" 
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Project+Image+Missing';" />
+                             onerror="this.onerror=null; this.src='DailyHarvest logo.png'; this.alt='DailyHarvest Project'" />
                         <div class="project-info">
                             <h3>DailyHarvest</h3>
                             <p>
@@ -1314,7 +1397,7 @@
                     </div>
                     <div class="project-card">
                         <img src="Travel-Buddy-logo.png" alt="Travel Buddy Travel Planning Platform" 
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Project+Image+Missing';" />
+                             onerror="this.onerror=null; this.src='Travel Buddy logo.png'; this.alt='Travel Buddy Project'" />
                         <div class="project-info">
                             <h3>Travel Buddy</h3>
                             <p>
@@ -1328,7 +1411,7 @@
                     </div>
                     <div class="project-card">
                         <img src="PSVlogo.png" alt="PSV Luxury E-commerce Website" 
-                             onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Project+Image+Missing';" />
+                             onerror="this.onerror=null; this.src='PSVlogo.png'; this.alt='PSV Website Project'" />
                         <div class="project-info">
                             <h3>PSV Website</h3>
                             <p>
@@ -1345,6 +1428,7 @@
             </div>
         </section>
 
+        <!-- Publications Section -->
         <section id="publications" class="section">
             <div class="container">
                 <div class="publications-header">
@@ -1382,8 +1466,9 @@ electronic health records to enhance clinical decision-making.
                         </a>
                     </div>
                     
-                </div>
+                    
                 
+                <!-- Publications Drive Link -->
                 <div class="publications-drive-link" style="text-align:center; margin: 2rem 0;">
                     <p style="font-size:1.1rem; color:var(--primary-color, #00f2ff); margin-bottom:0.5rem;">
                         Access all my research publications:
@@ -1399,6 +1484,7 @@ electronic health records to enhance clinical decision-making.
             <div class="container">
                 <h2 class="section-title">Skills</h2>
                 <div class="skills-container">
+                    <!-- Web Development -->
                     <div class="skill-item" data-rating="4">
                         <i class="fab fa-html5"></i>
                         <p>HTML5</p>
@@ -1424,21 +1510,25 @@ electronic health records to enhance clinical decision-making.
                         <p>Vue.js</p>
                         <div class="skill-rating"></div>
                     </div>
+                    <!-- Backend Development -->
                     <div class="skill-item" data-rating="3">
                         <i class="fab fa-node-js"></i>
                         <p>Node.js</p>
                         <div class="skill-rating"></div>
                     </div>
+                    <!-- Database Management -->
                     <div class="skill-item" data-rating="3">
                         <i class="fas fa-database"></i>
                         <p>MySQL</p>
                         <div class="skill-rating"></div>
                     </div>
+                    <!-- Problem-solving -->
                     <div class="skill-item" data-rating="3">
                         <i class="fas fa-lightbulb"></i>
                         <p>Problem-solving</p>
                         <div class="skill-rating"></div>
                     </div>
+                    <!-- Video Editing -->
                     <div class="skill-item" data-rating="3">
                         <i class="fas fa-video"></i>
                         <p>Video Editing</p>
@@ -1454,6 +1544,7 @@ electronic health records to enhance clinical decision-making.
                         <p>Motion Graphics</p>
                         <div class="skill-rating"></div>
                     </div>
+                    <!-- Python -->
                     <div class="skill-item" data-rating="4">
                         <i class="fab fa-python"></i>
                         <p>Python</p>
@@ -1520,10 +1611,10 @@ electronic health records to enhance clinical decision-making.
                             <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                         </div>
                         <div id="form-success" style="display:none; color:#4CAF50; font-size:1.1rem; margin-bottom:1rem; text-align:center;">
-                            <strong>Thanks!</strong><br>
-                            The form was submitted successfully.<br>
-                            Shortly I will get in touch with you.
-                        </div>
+        <strong>Thanks!</strong><br>
+        The form was submitted successfully.<br>
+        Shortly I will get in touch with you.
+    </div>
                         <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
@@ -1583,7 +1674,7 @@ electronic health records to enhance clinical decision-making.
             });
             
             // ===== TOGGLE SECTIONS =====
-            // Certifications toggle
+            // Certifications toggle - FIXED with explicit IDs
             const toggleCertificationsBtn = document.getElementById('toggleCertificationsBtn');
             const certificationsContainer = document.getElementById('certificationsContainer');
             
@@ -1608,7 +1699,7 @@ electronic health records to enhance clinical decision-making.
                 });
             }
 
-            // Resume toggle
+            // Resume toggle - FIXED with explicit IDs
             const toggleResumeBtn = document.getElementById('toggleResumeBtn');
             const resumeContainer = document.getElementById('resumeContainer');
             
@@ -1621,7 +1712,7 @@ electronic health records to enhance clinical decision-making.
                 });
             }
 
-            // Publications toggle
+            // Publications toggle - FIXED with explicit IDs
             const togglePublicationsBtn = document.getElementById('togglePublicationsBtn');
             const publicationsContainer = document.getElementById('publicationsContainer');
             
@@ -1668,6 +1759,17 @@ electronic health records to enhance clinical decision-making.
             if(currentYearSpan) {
                 currentYearSpan.textContent = new Date().getFullYear();
             }
+
+            // ===== DEBUG: Check which images are loading =====
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('load', function() {
+                    console.log('Loaded:', this.src);
+                });
+                img.addEventListener('error', function() {
+                    console.log('Failed to load:', this.src);
+                });
+            });
         });
 
         document.addEventListener('DOMContentLoaded', function() {
